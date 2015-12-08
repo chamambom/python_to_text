@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash ,session ,abort
 from flaskext.mysql import MySQL
 import os
 
@@ -19,6 +19,9 @@ mysql.init_app(app)
 conn = mysql.connect()
 cursor = conn.cursor()
 
+app.config['USERNAME'] = 'test'
+app.config['PASSWORD'] = 'test'
+
 
 @app.route('/')
 def home():
@@ -35,6 +38,7 @@ def show_entries():
     ON subscriber.plan_id =plan.plan_id ORDER BY subscriber.ipaddress '
     cursor.execute(sql)
     conn.commit()
+    conn.close
     data = cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], attribute=row[2], plan_id=row[3], dom_id=row[4], domain_name=row[5],
@@ -85,6 +89,7 @@ def edit_entry(sub_id):
     ON subscriber.plan_id =plan.plan_id WHERE sub_id=' + id
     cursor.execute(sql)
     conn.commit()
+    conn.close
     data = cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], plan_id=row[2], dom_id=row[3], domain_name=row[4],
@@ -99,7 +104,7 @@ def edit_entry(sub_id):
     data = cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('edit.html', subscribers=subscribers, dropdown=dropdown)
-    conn.close
+
 
 
 @app.route('/show_dropdowns/')
@@ -107,6 +112,7 @@ def show_dropdowns():
     sql = 'select plan_name ,domain_name ,plan_id, dom_id from plan ,domains ';
     cursor.execute(sql)
     conn.commit()
+    conn.close
     data = cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('add_user.html', dropdown=dropdown)
@@ -132,6 +138,7 @@ def delete_entry(sub_id):
     sql_to_populate_query_into_a_dict = 'select ipaddress from subscriber WHERE sub_id=' + id
     cursor.execute(sql_to_populate_query_into_a_dict)
     conn.commit()
+    conn.close
     data = cursor.fetchall()
     subscribers = [dict(ipaddress=row[0]) for row in data]
     for sub in subscribers:
@@ -142,7 +149,28 @@ def delete_entry(sub_id):
     conn.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully deleted ')
     return redirect(url_for('show_entries'))
-    conn.close
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != app.config['USERNAME']:
+            error = 'Invalid username'
+        elif request.form['password'] != app.config['PASSWORD']:
+            error = 'Invalid password'
+        else:
+            session['logged_in'] = True
+            flash('You are now logged in')
+            return redirect(url_for('show_entries'))
+    return render_template('login.html', error=error)
+
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('You are now logged out')
+    return redirect(url_for('show_entries'))
 
 # Run
 if __name__ == '__main__':

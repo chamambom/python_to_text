@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dd1cf1c-8174-46d1-9584-3628e87d88e7" name="Default" comment="" />
+    <list default="true" id="9dd1cf1c-8174-46d1-9584-3628e87d88e7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/display.html" afterPath="$PROJECT_DIR$/templates/display.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/frampol" afterPath="$PROJECT_DIR$/static/frampol" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frampolweb.py" afterPath="$PROJECT_DIR$/frampolweb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/templates/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="frampolweb.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -14,7 +23,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/frampolweb$frampolweb.coverage" NAME="frampolweb Coverage Results" MODIFIED="1449495516753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/frampolweb$frampolweb.coverage" NAME="frampolweb Coverage Results" MODIFIED="1449579514114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -66,27 +75,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="frampolweb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="frampolweb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frampolweb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4722222" vertical-offset="272" max-vertical-offset="2635">
-              <caret line="31" column="24" selection-start-line="29" selection-start-column="10" selection-end-line="34" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="3111">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-                <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-                <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-                <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-                <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-                <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-                <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-                <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-                <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-                <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-                <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-                <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-                <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-                <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+                <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+                <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+                <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+                <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+                <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+                <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+                <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+                <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+                <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+                <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+                <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+                <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+                <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+                <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
               </folding>
             </state>
           </provider>
@@ -95,8 +104,8 @@
       <file leaf-file-name="frampol" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/frampol">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="612">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="561">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,8 +134,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="5644">
-              <caret line="190" column="19" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2947" max-vertical-offset="5848">
+              <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -145,18 +154,28 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="323">
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="323">
               <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="561">
-              <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.34961438" vertical-offset="255" max-vertical-offset="697">
+              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="510">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -165,14 +184,17 @@
       <file leaf-file-name="display.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/display.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1054">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state vertical-scroll-proportion="-26.807692" vertical-offset="204" max-vertical-offset="1054">
+              <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -185,14 +207,15 @@
         <option value="$PROJECT_DIR$/static/style.css" />
         <option value="$PROJECT_DIR$/pignation.py" />
         <option value="$PROJECT_DIR$/app.cfg" />
-        <option value="$PROJECT_DIR$/templates/display.html" />
         <option value="$PROJECT_DIR$/add_user.py" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/add_user.html" />
-        <option value="$PROJECT_DIR$/templates/layout.html" />
-        <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/static/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/frampolweb.py" />
+        <option value="$PROJECT_DIR$/templates/display.html" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
+        <option value="$PROJECT_DIR$/templates/layout.html" />
       </list>
     </option>
   </component>
@@ -204,7 +227,7 @@
     <option name="width" value="1378" />
     <option name="height" value="735" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -246,6 +269,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frampolweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frampolweb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -259,7 +296,7 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../microblog/templates" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
   </component>
@@ -512,30 +549,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18787879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33049405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23834197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18787879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965987" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23834197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965987" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -559,14 +596,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/display.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1054">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="493">
@@ -581,20 +610,20 @@
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
         </state>
       </provider>
@@ -645,20 +674,20 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
         </state>
       </provider>
@@ -709,20 +738,20 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
         </state>
       </provider>
@@ -773,20 +802,20 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
         </state>
       </provider>
@@ -837,20 +866,20 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
         </state>
       </provider>
@@ -901,20 +930,20 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
         </state>
       </provider>
@@ -999,24 +1028,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/frampol">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="612">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/display.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1054">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="323">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="561">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1037,22 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="561">
-          <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="5644">
-          <caret line="190" column="19" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="17861" max-vertical-offset="93245">
@@ -1061,27 +1058,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2947" max-vertical-offset="5848">
+          <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="323">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="510">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frampolweb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4722222" vertical-offset="272" max-vertical-offset="2635">
-          <caret line="31" column="24" selection-start-line="29" selection-start-column="10" selection-end-line="34" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2709" max-vertical-offset="3111">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <marker date="1449495555996" expanded="true" signature="648:945" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:946" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:975" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="648:976" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2186:2271" placeholder="insert into ..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2875" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="2599:2889" placeholder="SELECT subsc..subscriber..." />
-            <marker date="1449495555996" expanded="true" signature="3272:3337" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="3684:3749" placeholder="select plan_..plan..." />
-            <marker date="1449495555996" expanded="true" signature="4237:4298" placeholder="UPDATE subsc..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4640" placeholder="select ipadd..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4665" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4633:4679" placeholder="DELETE from ..." />
-            <marker date="1449495555996" expanded="true" signature="4953:4989" placeholder="delete from ..." />
+            <marker date="1449579604983" expanded="true" signature="729:1026" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1027" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1056" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="729:1057" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2282:2367" placeholder="insert into ..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2971" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="2695:2985" placeholder="SELECT subsc..subscriber..." />
+            <marker date="1449579604983" expanded="true" signature="3383:3448" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="3781:3846" placeholder="select plan_..plan..." />
+            <marker date="1449579604983" expanded="true" signature="4349:4410" placeholder="UPDATE subsc..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4752" placeholder="select ipadd..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4777" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="4745:4791" placeholder="DELETE from ..." />
+            <marker date="1449579604983" expanded="true" signature="5080:5116" placeholder="delete from ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/display.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.807692" vertical-offset="204" max-vertical-offset="1054">
+          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34961438" vertical-offset="255" max-vertical-offset="697">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

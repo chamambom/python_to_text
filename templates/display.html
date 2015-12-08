@@ -7,8 +7,8 @@
 <body>
 {% extends "layout.html" %}
 {% block body %}
+{% if session.logged_in %}
 <div class="notes">
-
 
     <p>You have {{ total }} Subscriber IP/Bandwidth mappings</p>
 {#     <p class="home"><a href="{{ url_for('show_all_entries') }}">GenerateBandwidthFile</a></p>#}
@@ -51,7 +51,7 @@
 
    </table>
 
-
+{% endif %}
 {% endblock %}
 </body>
 </html>
