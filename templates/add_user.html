@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% extends "layout.html" %}
+{% block body %}
+
+<ul class="add_user_form">
+
+<form action="{{ url_for('add_users') }}" method=post class=add-entry>
+
+<table cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+
+             <tr>
+              <td ><label>IP Address</label></td>
+              <td><input type="text" name="ipaddress" required="true" /></td>
+             </tr>
+
+
+            <tr>
+               <td>
+                      <label>Bandwidth</label>
+                </td>
+            <td>
+               <select name="plan_id" class="dropdown">
+               {% for key in dropdown %}
+                <option value="{{key.plan_id}}" SELECTED>{{ key.plan_name }}</option>
+               {% endfor %}
+                </select>
+            </td>
+           </tr>
+
+        <div class="hidden_content">
+         <tr>
+        {# <td>
+             <label>Username</label>
+         </td>#}
+         <td colspan="2"> <input type="hidden" value=" {{ dropdown[0].dom_id }}" name="dom_id" required="true" readonly/></td>
+         </tr>
+
+        <tr>
+          {#<td>
+           <label>Attributes</label>
+           </td>#}
+          <td colspan="2">
+            <input type="hidden" value=":=set_attribute" name="attribute"  readonly="readonly" />
+          </td>
+        </tr>
+      </div>
+
+      <tr>
+        <td>
+           <label>Submit</label>
+        </td>
+        <td> <input  type=submit value="Add Subcriber" class="button" ></td>
+      </tr>
+
+
+
+</table>
+  </form>
+</ul>
+
+{% endblock %}
+</body>2
+</html>
