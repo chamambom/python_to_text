@@ -1,23 +1,27 @@
 from __future__ import unicode_literals
-from flask import Flask, render_template, request, redirect, url_for, flash ,session ,abort
-from flaskext.mysql import MySQL
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json
+import MySQLdb
 import os
 
 
-mysql = MySQL()
 app = Flask(__name__)
 
 # Set session secret key
 app.secret_key = '101'
 
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'CDMA1xafri'
-app.config['MYSQL_DATABASE_DB'] = 'frampol_subscribers'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
 
-conn = mysql.connect()
-cursor = conn.cursor()
+@app.before_request
+def db_connect():
+    g.conn = MySQLdb.connect(host='localhost', user='root', passwd='CDMA1xafri', db='frampol_subscribers')
+    g.cursor = g.conn.cursor()
+
+
+@app.after_request
+def db_disconnect(response):
+    g.cursor.close()
+    g.conn.close()
+    return response
+
 
 app.config['USERNAME'] = 'test'
 app.config['PASSWORD'] = 'test'
@@ -36,10 +40,9 @@ def show_entries():
     ON subscriber.dom_id=domains.dom_id \
     INNER JOIN PLAN  \
     ON subscriber.plan_id =plan.plan_id ORDER BY subscriber.ipaddress '
-    cursor.execute(sql)
-    conn.commit()
-    conn.close
-    data = cursor.fetchall()
+    g.cursor.execute(sql)
+    g.conn.commit()
+    data = g.cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], attribute=row[2], plan_id=row[3], dom_id=row[4], domain_name=row[5],
              plan_name=row[6]) for
@@ -71,9 +74,8 @@ def add_users():
     dom_id = int(request.form["dom_id"])
     attribute = request.form["attribute"]
     sql = 'insert into subscriber (ipaddress ,plan_id, dom_id ,attribute) values (%s,%s ,%s ,%s)'
-    cursor.execute(sql, [ipaddress, plan_id, dom_id, attribute])
-    conn.commit()
-    conn.close
+    g.cursor.execute(sql, [ipaddress, plan_id, dom_id, attribute])
+    g.conn.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully Added')
     return redirect(url_for('show_entries'))
 
@@ -87,10 +89,9 @@ def edit_entry(sub_id):
     ON subscriber.dom_id=domains.dom_id \
     INNER JOIN PLAN  \
     ON subscriber.plan_id =plan.plan_id WHERE sub_id=' + id
-    cursor.execute(sql)
-    conn.commit()
-    conn.close
-    data = cursor.fetchall()
+    g.cursor.execute(sql)
+    g.conn.commit()
+    data = g.cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], plan_id=row[2], dom_id=row[3], domain_name=row[4],
              plan_name=row[5]) for
@@ -99,24 +100,21 @@ def edit_entry(sub_id):
     # Below is the dropdown for PLANs
 
     sql = 'select plan_name ,domain_name ,plan_id, dom_id from plan ,domains ';
-    cursor.execute(sql)
-    conn.commit()
-    data = cursor.fetchall()
+    g.cursor.execute(sql)
+    g.conn.commit()
+    data = g.cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('edit.html', subscribers=subscribers, dropdown=dropdown)
-
 
 
 @app.route('/show_dropdowns/')
 def show_dropdowns():
     sql = 'select plan_name ,domain_name ,plan_id, dom_id from plan ,domains ';
-    cursor.execute(sql)
-    conn.commit()
-    conn.close
-    data = cursor.fetchall()
+    g.cursor.execute(sql)
+    g.conn.commit()
+    data = g.cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('add_user.html', dropdown=dropdown)
-
 
 @app.route('/update_entry/<int:sub_id>', methods=['GET', 'POST'])
 def update_entry(sub_id):
@@ -125,9 +123,8 @@ def update_entry(sub_id):
     plan_id = int(request.form["plan_id"])
     data = (ipaddress, plan_id)
     sql = 'UPDATE subscriber SET ipaddress =%s,plan_id=%s  WHERE sub_id=' + id
-    cursor.execute(sql, data)
-    conn.commit()
-    conn.close
+    g.cursor.execute(sql, data)
+    g.conn.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully updated ')
     return redirect(url_for('show_entries'))
 
@@ -136,17 +133,15 @@ def update_entry(sub_id):
 def delete_entry(sub_id):
     id = str(sub_id)
     sql_to_populate_query_into_a_dict = 'select ipaddress from subscriber WHERE sub_id=' + id
-    cursor.execute(sql_to_populate_query_into_a_dict)
-    conn.commit()
-    conn.close
-    data = cursor.fetchall()
+    g.cursor.execute(sql_to_populate_query_into_a_dict)
+    data = g.cursor.fetchall()
     subscribers = [dict(ipaddress=row[0]) for row in data]
     for sub in subscribers:
         ipaddress = str(sub['ipaddress'])
 
     sql_to_delete_the_subscriber = 'delete from subscriber WHERE sub_id=' + id
-    cursor.execute(sql_to_delete_the_subscriber)
-    conn.commit()
+    g.cursor.execute(sql_to_delete_the_subscriber)
+    g.conn.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully deleted ')
     return redirect(url_for('show_entries'))
 
