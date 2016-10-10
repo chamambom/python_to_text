@@ -1,19 +1,27 @@
 from __future__ import unicode_literals
 from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json
 import MySQLdb
+import databaseconfig
 import os
 
 
 app = Flask(__name__)
-
-# Set session secret key
 app.secret_key = '101'
+
+#app.config.from_object(databaseconfig)
 
 
 @app.before_request
 def db_connect():
-    g.conn = MySQLdb.connect(host='localhost', user='root', passwd='CDMA1xafri', db='frampol_subscribers')
+    g.conn = MySQLdb.connect(databaseconfig.ProductionConfig.dbcreds['host'],
+                             databaseconfig.ProductionConfig.dbcreds['user'],
+                             databaseconfig.ProductionConfig.dbcreds['passwd'],
+                             databaseconfig.ProductionConfig.dbcreds['db']
+                             )
+    #g.conn = MySQLdb.connect(host='localhost', user='frampoluser', passwd='frampoluser#', db='frampol_subscribers')
     g.cursor = g.conn.cursor()
+
+
 
 
 @app.after_request
@@ -45,8 +53,7 @@ def show_entries():
     data = g.cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], attribute=row[2], plan_id=row[3], dom_id=row[4], domain_name=row[5],
-             plan_name=row[6]) for
-        row in data]
+             plan_name=row[6]) for row in data]
     total = len(subscribers)
 
     app_root = os.path.dirname(os.path.abspath(__file__))
@@ -115,6 +122,7 @@ def show_dropdowns():
     data = g.cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('add_user.html', dropdown=dropdown)
+
 
 @app.route('/update_entry/<int:sub_id>', methods=['GET', 'POST'])
 def update_entry(sub_id):
