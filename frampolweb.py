@@ -22,9 +22,10 @@ def db_disconnect(response):
     g.conn.close()
     return response
 
-
+#Please note that the below values can configured to come out of a database
 app.config['USERNAME'] = 'eTk3HZ%G'
 app.config['PASSWORD'] = 'fS$6{-&Mhf.gBYD@'
+
 
 
 @app.route('/')
