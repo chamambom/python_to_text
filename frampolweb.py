@@ -4,12 +4,8 @@ import MySQLdb
 import databaseconfig
 import os
 
-
 app = Flask(__name__)
 app.secret_key = '101'
-
-#app.config.from_object(databaseconfig)
-
 
 @app.before_request
 def db_connect():
@@ -18,11 +14,7 @@ def db_connect():
                              databaseconfig.ProductionConfig.dbcreds['passwd'],
                              databaseconfig.ProductionConfig.dbcreds['db']
                              )
-    #g.conn = MySQLdb.connect(host='localhost', user='frampoluser', passwd='frampoluser#', db='frampol_subscribers')
     g.cursor = g.conn.cursor()
-
-
-
 
 @app.after_request
 def db_disconnect(response):
@@ -31,8 +23,8 @@ def db_disconnect(response):
     return response
 
 
-app.config['USERNAME'] = 'test'
-app.config['PASSWORD'] = 'test'
+app.config['USERNAME'] = 'eTk3HZ%G'
+app.config['PASSWORD'] = 'fS$6{-&Mhf.gBYD@'
 
 
 @app.route('/')
