@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json ,make_response
 import MySQLdb
 import databaseconfig
 import os
@@ -7,25 +7,29 @@ import os
 app = Flask(__name__)
 app.secret_key = '101'
 
+
 @app.before_request
 def db_connect():
-    g.conn = MySQLdb.connect(databaseconfig.ProductionConfig.dbcreds['host'],
-                             databaseconfig.ProductionConfig.dbcreds['user'],
-                             databaseconfig.ProductionConfig.dbcreds['passwd'],
-                             databaseconfig.ProductionConfig.dbcreds['db']
-                             )
+    g.conn = MySQLdb.connect(
+        databaseconfig.ProductionConfig.dbcreds['host'],
+        databaseconfig.ProductionConfig.dbcreds['user'],
+        databaseconfig.ProductionConfig.dbcreds['passwd'],
+        databaseconfig.ProductionConfig.dbcreds['db'])
     g.cursor = g.conn.cursor()
 
 @app.after_request
-def db_disconnect(response):
-    g.cursor.close()
-    g.conn.close()
+def call_after_request_callbacks(response):
+    for callback in getattr(g, 'after_request_callbacks', ()):
+        callback(response)
     return response
 
-#Please note that the below values can configured to come out of a database
+@app.errorhandler(Exception)
+def exception_handler(error):
+    return "!!!!"  + repr(error)
+
+# Please note that the below values can configured to come out of a database
 app.config['USERNAME'] = 'eTk3HZ%G'
 app.config['PASSWORD'] = 'fS$6{-&Mhf.gBYD@'
-
 
 
 @app.route('/')
@@ -167,6 +171,7 @@ def logout():
     session.pop('logged_in', None)
     flash('You are now logged out')
     return redirect(url_for('show_entries'))
+
 
 # Run
 if __name__ == '__main__':
