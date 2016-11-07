@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json ,make_response
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json
 import MySQLdb
 import databaseconfig
 import os
