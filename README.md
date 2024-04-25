@@ -3,8 +3,8 @@
 The Internet Bandwidth Shapper Consumed an input txt file in this format 
 
 ```
- - 10.10.10.25 10.10.10.25@ispcustomer.co.zw :=set_attribute 30_MEG_UP_30_MEG_DOWN
- - 10.10.10.26 10.10.10.26@ispcustomer.co.zw :=set_attribute 50_MEG_UP_50_MEG_DOWN
+ 10.10.10.25 10.10.10.25@ispcustomer.co.zw :=set_attribute 30_MEG_UP_30_MEG_DOWN
+ 10.10.10.26 10.10.10.26@ispcustomer.co.zw :=set_attribute 50_MEG_UP_50_MEG_DOWN
 
  ```
 
@@ -29,14 +29,11 @@ Portal Images
 
 ![img_1.png](static/img/img_1.png)
 
-#### Output
+#### Output 
+The Internet bandwidth shaper ingested a text file following this structure below.
 
 ![img_4.png](static/img/img_4.png)
 
-The Internet bandwidth shaper ingested a text file following this structure:
-
- - 10.10.10.25 10.10.10.25@ispcustomer.co.zw :=set_attribute 30_MEG_UP_30_MEG_DOWN
- - 10.10.10.26 10.10.10.26@ispcustomer.co.zw :=set_attribute 50_MEG_UP_50_MEG_DOWN
 
 #### Key Considerations of the format. 
 - spaces in the file.
@@ -58,6 +55,12 @@ Domains table.
 ![alt text](static/img/image-2.png)
 
 #### ToDo - Improvements.
+I tried to document any improvements that could be made to this flask/python app. When I designed it, it was meant to streamline the network subscriber provisioning process and not meant to be a fully fledged application. There are concepts that can be borrowed for other applications.
+
+e.g 
+
+- validation of the input from the portal.
+- Business logic checks for Data input.  
 
 ![alt text](static/img/img44545.png)
 
