@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json
-import MySQLdb
+# import MySQLdb
+import mysql.connector as db
 import databaseconfig
 import os
 
@@ -10,12 +11,19 @@ app.secret_key = '101'
 
 @app.before_request
 def db_connect():
-    g.conn = MySQLdb.connect(
-        databaseconfig.ProductionConfig.dbcreds['host'],
-        databaseconfig.ProductionConfig.dbcreds['user'],
-        databaseconfig.ProductionConfig.dbcreds['passwd'],
-        databaseconfig.ProductionConfig.dbcreds['db'])
-    g.cursor = g.conn.cursor()
+    g.connection = db.connect(user='root',
+                            password='beautiful',
+                            host='localhost',
+                            database='frampol_db')
+    g.cursor = g.connection.cursor(buffered=True)
+
+    # g.conn = db.connect(
+    #     databaseconfig.ProductionConfig.dbcreds['host'],
+    #     databaseconfig.ProductionConfig.dbcreds['user'],
+    #     databaseconfig.ProductionConfig.dbcreds['passwd'],
+    #     databaseconfig.ProductionConfig.dbcreds['db'])
+    # g.cursor = g.conn.cursor()
+
 
 @app.after_request
 def call_after_request_callbacks(response):
@@ -46,7 +54,7 @@ def show_entries():
     INNER JOIN PLAN  \
     ON subscriber.plan_id =plan.plan_id ORDER BY subscriber.ipaddress '
     g.cursor.execute(sql)
-    g.conn.commit()
+    g.connection.commit()
     data = g.cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], attribute=row[2], plan_id=row[3], dom_id=row[4], domain_name=row[5],
@@ -79,7 +87,7 @@ def add_users():
     attribute = request.form["attribute"]
     sql = 'insert into subscriber (ipaddress ,plan_id, dom_id ,attribute) values (%s,%s ,%s ,%s)'
     g.cursor.execute(sql, [ipaddress, plan_id, dom_id, attribute])
-    g.conn.commit()
+    g.connection.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully Added')
     return redirect(url_for('show_entries'))
 
@@ -94,7 +102,7 @@ def edit_entry(sub_id):
     INNER JOIN PLAN  \
     ON subscriber.plan_id =plan.plan_id WHERE sub_id=' + id
     g.cursor.execute(sql)
-    g.conn.commit()
+    g.connection.commit()
     data = g.cursor.fetchall()
     subscribers = [
         dict(sub_id=row[0], ipaddress=row[1], plan_id=row[2], dom_id=row[3], domain_name=row[4],
@@ -105,7 +113,7 @@ def edit_entry(sub_id):
 
     sql = 'select plan_name ,domain_name ,plan_id, dom_id from plan ,domains ';
     g.cursor.execute(sql)
-    g.conn.commit()
+    g.connection.commit()
     data = g.cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('edit.html', subscribers=subscribers, dropdown=dropdown)
@@ -115,7 +123,7 @@ def edit_entry(sub_id):
 def show_dropdowns():
     sql = 'select plan_name ,domain_name ,plan_id, dom_id from plan ,domains ';
     g.cursor.execute(sql)
-    g.conn.commit()
+    g.connection.commit()
     data = g.cursor.fetchall()
     dropdown = [dict(plan_name=row[0], domain_name=row[1], plan_id=row[2], dom_id=row[3]) for row in data]
     return render_template('add_user.html', dropdown=dropdown)
@@ -129,7 +137,7 @@ def update_entry(sub_id):
     data = (ipaddress, plan_id)
     sql = 'UPDATE subscriber SET ipaddress =%s,plan_id=%s  WHERE sub_id=' + id
     g.cursor.execute(sql, data)
-    g.conn.commit()
+    g.connection.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully updated ')
     return redirect(url_for('show_entries'))
 
@@ -146,7 +154,7 @@ def delete_entry(sub_id):
 
     sql_to_delete_the_subscriber = 'delete from subscriber WHERE sub_id=' + id
     g.cursor.execute(sql_to_delete_the_subscriber)
-    g.conn.commit()
+    g.connection.commit()
     flash('Subscriber with IP Address ' + ipaddress + ' has been successfully deleted ')
     return redirect(url_for('show_entries'))
 
@@ -175,4 +183,4 @@ def logout():
 
 # Run
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host='0.0.0.0')
