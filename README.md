@@ -1,4 +1,4 @@
-### Self-Service Portal generating a text file format using Python (Subscriber Network Provisioning through an Internet Bandwidth Shaper) 
+### Self service portal generating a text file format using Python, Flask & MySQL (Subscriber Network Provisioning through an Internet Bandwidth Shaper) 
 
 The Internet Bandwidth Shaper Consumed an input txt file in this format 
 
@@ -71,3 +71,8 @@ e.g
 
 ### Conclusion
 By embracing automation and empowering the customer, I not only tackled operational challenges but also fostered stronger, more efficient relationships. 
+
+
+## Dockerising the App to make it easier for anyone who wants to adopt it.
+After uploading my changes, I figured I needed to dockerise the app to make it easier for anyone who wanted to test it.
+
