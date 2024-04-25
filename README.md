@@ -9,16 +9,16 @@ The Internet Bandwidth Shapper Consumed an input txt file in this format
  ```
 
 ## Introduction
-This initiative stemmed from my time as a Systems Engineer at an Internet Service Provider (ISP) in Zimbabwe, between 2015 and 2017. Faced with the challenge of managing a tier one internet customer's bandwidth needs, I decided to automate this process.
+This initiative stemmed from my time as a Systems Engineer at an Internet Service Provider (ISP) in Zimbabwe, between 2015 and 2017. Faced with the challenge of managing a tier 2 internet customer's bandwidth needs, I decided to automate this process.
 
 ## About Myself
 I served as a Systems Engineer during this period, entrusted with managing critical business and operational support systems (BSS/OSS) running on Linux/Windows servers. My responsibilities also extended to maintaining the underlying VMware & HyperV infrastructure and automating repetitive tasks.
 
 ## The Challenge
-The tier one customer was leasing the bandwidth internet shaper for their Internet customers. This posed a significant operational overhead as requests flooded in via email and the ticketing system's support queue, demanding constant attention.
+The tier 2 customer was leasing the bandwidth internet shaper for their Internet customers. This posed a significant operational overhead as requests flooded in via email and the ticketing system's support queue, demanding constant attention.
 
 ## The Solution
-Confronted with mounting operational demands, I seized the opportunity to automate the process and created a self-service portal. This self service portal empowered the tier 1 ISP to take control of their bandwidth management, reducing the support burden on our team and enhancing their experience.
+Confronted with mounting operational demands, I seized the opportunity to automate the process and created a self-service portal. This self service portal empowered the tire 2 ISP to take control of their bandwidth management, reducing the support burden on our team and enhancing their experience.
 
 Portal Images 
 
