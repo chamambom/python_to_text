@@ -1,4 +1,4 @@
-### Subscriber Network Provisioning through an Internet Bandwidth Shaper (Self-Service Portal generating a text file format using Python)
+### Self-Service Portal generating a text file format using Python (Subscriber Network Provisioning through an Internet Bandwidth Shaper) 
 
 The Internet Bandwidth Shaper Consumed an input txt file in this format 
 
