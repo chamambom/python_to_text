@@ -73,6 +73,18 @@ e.g
 By embracing automation and empowering the customer, I not only tackled operational challenges but also fostered stronger, more efficient relationships. 
 
 
-## Dockerising the App to make it easier for anyone who wants to adopt it.
+### Optional - Dockerising the App to make it easier for anyone who wants to adopt it.
 After uploading my changes, I figured I needed to dockerise the app to make it easier for anyone who wanted to test it.
+
+###### First step is to configure your docker file
+      - See the Dockerfile contents under your root directory
+
+###### Second step, create an image of your aplication 
+      -  docker build -t bandshaper/flask-app:1.0.0 .       
+
+###### Third step, create a container from your image & run it
+      -  docker build -t bandshaper/flask-app:1.0.0 .      
+
+###### Final step - Running application.
+      - Your application is now running in a container and you can make any necessary tests.
 
