@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort, g, Response, json
-# import MySQLdb
+from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 import mysql.connector as db
 import databaseconfig
 import os
@@ -11,18 +10,13 @@ app.secret_key = '101'
 
 @app.before_request
 def db_connect():
-    g.connection = db.connect(user='root',
-                            password='beautiful',
-                            host='localhost',
-                            database='frampol_db')
+    dbcreds = databaseconfig.ProductionConfig.dbcreds
+    g.connection = db.connect(
+        host=dbcreds['host'],
+        user=dbcreds['user'],
+        passwd=dbcreds['passwd'],
+        database=dbcreds['db'])
     g.cursor = g.connection.cursor(buffered=True)
-
-    # g.conn = db.connect(
-    #     databaseconfig.ProductionConfig.dbcreds['host'],
-    #     databaseconfig.ProductionConfig.dbcreds['user'],
-    #     databaseconfig.ProductionConfig.dbcreds['passwd'],
-    #     databaseconfig.ProductionConfig.dbcreds['db'])
-    # g.cursor = g.conn.cursor()
 
 
 @app.after_request
@@ -183,4 +177,4 @@ def logout():
 
 # Run
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
