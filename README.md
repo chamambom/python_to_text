@@ -92,7 +92,7 @@ Docker supports different types of networks, each fit for certain use cases. We�
 - When using Docker containers, network isolation is achieved using a network namespace.
 - 
 
-- - What Are Docker Network Drivers?
+###### What Are Docker Network Drivers?
 
 Docker handles communication between containers by creating a default bridge network, so you often don’t have to deal with networking and can instead focus on creating and running containers. This default bridge network works in most cases, but it’s not the only option you have.
 
@@ -106,13 +106,13 @@ You can use this whenever you want your containers running in isolation to conne
 
 Let’s look at some examples of how a bridge network driver works.
 
-``` 
+ 
 Check the available network by running the docker network ls command
 - run docker network ls  
 - Start your containers. 
 - Run the docker ps command to verify that containers are up and running.
 - Verify that the containers are attached to the bridge network. 
-```
+
 
 
 The downside with the bridge driver is that it’s not recommended for production; the containers communicate via IP address instead of automatic service discovery to resolve an IP address to the container name. Every time you run a container, a different IP address gets assigned to it. It may work well for local development or CI/CD, but it’s definitely not a sustainable approach for applications running in production.
