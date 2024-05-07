@@ -106,11 +106,13 @@ You can use this whenever you want your containers running in isolation to conne
 
 Let’s look at some examples of how a bridge network driver works.
 
-``` Check the available network by running the docker network ls command
+``` 
+Check the available network by running the docker network ls command
 - run docker network ls  
 - Start your containers. 
 - Run the docker ps command to verify that containers are up and running.
-- Verify that the containers are attached to the bridge network. ```
+- Verify that the containers are attached to the bridge network. 
+```
 
 
 The downside with the bridge driver is that it’s not recommended for production; the containers communicate via IP address instead of automatic service discovery to resolve an IP address to the container name. Every time you run a container, a different IP address gets assigned to it. It may work well for local development or CI/CD, but it’s definitely not a sustainable approach for applications running in production.
