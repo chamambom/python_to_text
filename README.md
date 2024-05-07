@@ -83,7 +83,7 @@ By embracing automation and empowering the customer, I not only tackled operatio
 
 ##### Docker Compose 
 
-##### Docker Networking 
+#### Docker Networking 
 
 Docker networking is primarily used to establish communication between Docker containers and the outside world via the host machine where the Docker daemon is running.
 
@@ -92,13 +92,13 @@ Docker supports different types of networks, each fit for certain use cases. We�
 - When using Docker containers, network isolation is achieved using a network namespace.
 - 
 
-###### What Are Docker Network Drivers?
+##### What Are Docker Network Drivers?
 
 Docker handles communication between containers by creating a default bridge network, so you often don’t have to deal with networking and can instead focus on creating and running containers. This default bridge network works in most cases, but it’s not the only option you have.
 
 Docker allows you to create three different types of network drivers out-of-the-box: bridge, host, and none. However, they may not fit every use case, so we’ll also explore user-defined networks such as overlay and macvlan. Let’s take a closer look at each one.
 
-The Bridge Driver
+###### The Bridge Driver
 
 This is the default. Whenever you start Docker, a bridge network gets created and all newly started containers will connect automatically to the default bridge network.
 
@@ -121,7 +121,7 @@ Another reason not to use it in production is that it will allow unrelated conta
 
 NB - You can create custom bridge networks later.
 
-The Host Driver
+###### The Host Driver
 
 As the name suggests, host drivers use the networking provided by the host machine. And it removes network isolation between the container and the host machine where Docker is running. For example, If you run a container that binds to port 80 and uses host networking, the container’s application is available on port 80 on the host’s IP address. You can use the host network if you don’t want to rely on Docker’s networking but instead rely on the host machine networking.
 
@@ -131,7 +131,33 @@ The following command will start an Nginx image and listen to port 80 on the hos
 
 ``` docker run --rm -d --network host --name my_nginx nginx ```
 
+You can access Nginx by hitting the http://localhost:80/ url.
 
+The downside with the host network is that you can’t run multiple containers on the same host having the same port. Ports are shared by all containers on the host machine network.
+
+###### The None Driver
+
+The none network driver does not attach containers to any network. Containers do not access the external network or communicate with other containers. You can use it when you want to disable the networking on a container.
+
+###### The Overlay Driver
+
+The Overlay driver is for multi-host network communication, as with Docker Swarm or Kubernetes. It allows containers across the host to communicate with each other without worrying about the setup. Think of an overlay network as a distributed virtualized network that’s built on top of an existing computer network.
+
+To create an overlay network for Docker Swarm services, use the following command:
+
+``` docker network create -d overlay my-overlay-network ```
+
+To create an overlay network so that standalone containers can communicate with each other, use this command:
+
+``` docker network create -d overlay --attachable my-attachable-overlay```
+
+###### The Macvlan Driver
+
+This driver connects Docker containers directly to the physical host network. As per the Docker documentation:
+
+    “Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.”
+
+Macvlan networks are best for legacy applications that need to be modernized by containerizing them and running them on the cloud because they need to be attached to a physical network for performance reasons. A macvlan network is also not supported on Docker desktop for macOS.
 
 ###### First step is to configure your docker file
       - See the Dockerfile contents under your root directory
