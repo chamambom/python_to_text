@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM python:3.11-alpine
 
 
@@ -24,5 +25,5 @@ RUN pip install -r requirements.txt
 # Since Flask apps listen to port 5000  by default, we expose it
 EXPOSE 5000
 
-ENV FLASK_APP=app.py
-CMD ["flask", "run", "--host", "0.0.0.0"]
+#ENV FLASK_APP=app.py
+CMD ["flask", "run", "--host=0.0.0.0"]

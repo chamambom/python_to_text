@@ -3,12 +3,12 @@ services:
     container_name: web-app
     build:
       context: ./app
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
     depends_on:
       - db
     restart: always
     ports:
-      - 5000:5000
+      - 6080:5000
     environment:
       FLASK_APP: ./app/app.py
     volumes:

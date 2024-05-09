@@ -80,8 +80,24 @@ By embracing automation and empowering the customer, I not only tackled operatio
 - I figured dockerising the app will make it easier for anyone out there who wants to see how it works. I will put every detail about docker that should help anyone troubleshoot whatever challenges they will face when trying to reproduce this repo.
 
 ##### DockerFile Contents/terms
+For example, in your Dockerfile:
+Expose 5000 
+
+The port specified after the EXPOSE instruction in the Dockerfile would be the port inside the Docker container.
+
+So, in the command docker run -i -t -p 6080:5000 ..., where port 5000 is mapped to port 6080, you would expose port 5000 inside the Dockerfile if your application listens on that port.
 
 ##### Docker Compose 
+
+Lets educate each other first 
+
+    ports:
+      - 6080:5000
+
+6080 is the port on the host machine.
+5000 is the port inside the Docker container.
+
+e.g In the command docker run -i -t -p 6080:5000, the port mapping specifies that port 5000 inside the Docker container is mapped to port 6080 on the host machine.
 
 #### Docker Networking 
 
