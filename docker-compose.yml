@@ -24,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: beautiful
       MYSQL_DATABASE: frampol_db
     ports:
-      - 3307:3307
+      - 3307:3306
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
     networks:
