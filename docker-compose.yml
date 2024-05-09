@@ -18,7 +18,7 @@ services:
 
   db:
     container_name: db-backend
-    image: mysql:5.7
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: beautiful
