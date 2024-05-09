@@ -159,6 +159,28 @@ This driver connects Docker containers directly to the physical host network. As
 
 Macvlan networks are best for legacy applications that need to be modernized by containerizing them and running them on the cloud because they need to be attached to a physical network for performance reasons. A macvlan network is also not supported on Docker desktop for macOS.
 
+###### Basic Docker Networking Commands
+
+To see which commands list, create, connect, disconnect, inspect, or remove a Docker network, use the docker network help command.
+
+```$ docker network help
+
+Usage:  docker network COMMAND
+
+Manage networks
+
+Commands:
+  connect     Connect a container to a network
+  create      Create a network
+  disconnect  Disconnect a container from a network
+  inspect     Display detailed information on one or more networks
+  ls          List networks
+  prune       Remove all unused networks
+  rm          Remove one or more networks
+  ```
+
+  
+
 ###### First step is to configure your docker file
       - See the Dockerfile contents under your root directory
 
