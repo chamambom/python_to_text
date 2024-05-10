@@ -27,17 +27,17 @@ services:
       - 3307:3306
     volumes: # Volumes: Mounts two volumes into the container:
       - ./db:/docker-entrypoint-initdb.d/:ro # ./db:/docker-entrypoint-initdb.d/: Mounts the ./db directory on the host machine into the /docker-entrypoint-initdb.d/ directory inside the container. This is used for initializing the database with SQL scripts during container startup.
-      - db_data:/var/lib/mysql # db_data:/var/lib/mysql: Mounts a named volume db_data into the /var/lib/mysql directory inside the container. This volume is used to persist MySQL data.
+      #- db_data:/var/lib/mysql # db_data:/var/lib/mysql: Mounts a named volume db_data into the /var/lib/mysql directory inside the container. This volume is used to persist MySQL data.
     networks:
       - backend
 
 networks: # Networks: Associates the container with the backend network, presumably defined elsewhere in the Docker Compose file.
     backend:
 
-volumes:
-    app:
-    db:
-    db_data:
+#volumes:
+#    app:
+#    db:
+#    db_data:
 
 
 
