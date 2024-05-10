@@ -17,7 +17,7 @@ RUN pip install --upgrade pip
 
 # Copy the rest of the source files into the image.
 COPY . .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 
 

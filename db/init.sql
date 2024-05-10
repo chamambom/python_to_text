@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `frampol_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `frampol_db`;
+CREATE DATABASE  IF NOT EXISTS `frampoldb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `frampoldb`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: frampol_db
+-- Host: localhost    Database: frampoldb
 -- ------------------------------------------------------
 -- Server version	8.0.32
 

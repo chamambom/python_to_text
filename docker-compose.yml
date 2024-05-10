@@ -17,24 +17,32 @@ services:
       - backend
 
   db:
-    container_name: db-backend
-    image: mysql:latest
-    restart: always
-    environment:
+    container_name: db-backend # Container Name: Specifies the name of the container as db-backend.
+    image: mysql:latest  # Image: Specifies the Docker image to use, which is mysql:latest.
+    restart: always # Restart Policy: Configures the container to restart automatically (restart: always) if it stops unexpectedly.
+    environment: # Environment Variables: Sets environment variables for configuring MySQL. The MYSQL_ROOT_PASSWORD is set to 'beautiful', and MYSQL_DATABASE is set to 'frampol_db'.
       MYSQL_ROOT_PASSWORD: beautiful
-      MYSQL_DATABASE: frampol_db
-    ports:
+      MYSQL_DATABASE: frampoldb
+    ports: # Ports: Maps port 3307 on the host machine to port 3306 inside the container, allowing external access to the MySQL service.
       - 3307:3306
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
+    volumes: # Volumes: Mounts two volumes into the container:
+      - ./db:/docker-entrypoint-initdb.d/:ro # ./db:/docker-entrypoint-initdb.d/: Mounts the ./db directory on the host machine into the /docker-entrypoint-initdb.d/ directory inside the container. This is used for initializing the database with SQL scripts during container startup.
+      - db_data:/var/lib/mysql # db_data:/var/lib/mysql: Mounts a named volume db_data into the /var/lib/mysql directory inside the container. This volume is used to persist MySQL data.
     networks:
       - backend
 
-networks:
+networks: # Networks: Associates the container with the backend network, presumably defined elsewhere in the Docker Compose file.
     backend:
 
 volumes:
     app:
     db:
+    db_data:
+
+
+
+
+
+
 
 

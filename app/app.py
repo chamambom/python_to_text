@@ -25,9 +25,11 @@ def call_after_request_callbacks(response):
         callback(response)
     return response
 
+
 @app.errorhandler(Exception)
 def exception_handler(error):
-    return "!!!!"  + repr(error)
+    return "!!!!" + repr(error)
+
 
 # Please note that the below values can configured to come out of a database
 app.config['USERNAME'] = 'eTk3HZ%G'
@@ -177,4 +179,4 @@ def logout():
 
 # Run
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
