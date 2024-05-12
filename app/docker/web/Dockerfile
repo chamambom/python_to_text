@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM python:3.11-alpine
-
+RUN apk update && \
+    apk add mariadb-client
 
 # ADD . /app
 # Sets the working directory for following COPY and CMD instructions
@@ -18,6 +19,7 @@ RUN pip install --upgrade pip
 # Copy the rest of the source files into the image.
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 
 
