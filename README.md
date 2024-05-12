@@ -23,16 +23,16 @@ Confronted with mounting operational demands, I seized the opportunity to automa
 Portal Images 
 
 #### Add Subscriber 
-![img_3.png](./app/static/img/img_3.png)
+![img_3.png](./app/static/img_3.png)
 
 #### View Subscribers 
 
-![img_1.png](static/img/img_1.png)
+![img_1.png](./app/static/img/img_1.png)
 
 #### Output 
 The Internet bandwidth shaper ingested a text file following this structure below.
 
-![img_4.png](static/img/img_4.png)
+![img_4.png](./app/static/img/img_4.png)
 
 
 #### Key Considerations of the format. 
@@ -43,16 +43,16 @@ The Internet bandwidth shaper ingested a text file following this structure belo
 #### Database Structure
 
 Database contained 3 tables.
-![alt text](static/img/image.png)
+![alt text](./app/static/img/image.png)
 
 Subscriber table with 2 foreign keys to the PLAN and DOMAINS table.
-![alt text](static/img/image4.png)
+![alt text](./app/static/img/image4.png)
 
 Plan table
-![alt text](static/img/image-1.png)
+![alt text](./app/static/img/image-1.png)
 
 Domains table.
-![alt text](static/img/image-2.png)
+![alt text](./app/static/img/image-2.png)
 
 #### Limitations - Improvements.
 I tried to document any improvements that could be made to this flask/python app. When I designed it, it was meant to streamline the network subscriber provisioning process and not meant to be a fully fledged application. There are concepts that can be borrowed for other applications.
@@ -63,7 +63,7 @@ e.g
 - Business logic checks for Data input. 
 - No database validation checks 
 
-![alt text](static/img/img44545.png)
+![alt text](./app/static/img/img44545.png)
 
 
 ### Key Features
@@ -221,7 +221,7 @@ Please note that if you face problems with troubleshooting - understand these sc
 
 Challenge 1 - Collation errors that made my container fail to initilise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
 
-![alt text](static/img/dbcollation.png)
+![alt text](./app/static/img/dbcollation.png)
 
 - Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
 
