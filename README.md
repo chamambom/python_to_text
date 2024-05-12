@@ -195,6 +195,14 @@ Commands:
   rm          Remove one or more networks
   ```
 
+My application is a multi-container app that runs the flask app in one container and a mysql database in another container. I have shared
+container networking notes in order for others who want to understand how it works.
+
+Please note that if you face problems with troubleshooting - understand these scenarios 
+
+- container to container communications on same host.
+- container to container on different hosts 
+- app to app communications on the same container.
   
 
 ###### First step is to configure your docker file
@@ -208,4 +216,16 @@ Commands:
 
 ###### Final step - Running application.
       - Your application is now running in a container and you can make any necessary tests.
+
+###### Challenges I faced and had to overcome when I tried to dockerise this app
+
+Challenge 1 - Collation errors that made my container fail to initilise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
+
+![alt text](static/img/dbcollation.png)
+
+- Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
+
+I discovered that - MariaDB latest doesnt support the utf8mb4_0900_ai_ci Collation as shown in the image. I then replaced the collation with the one supported by MariaDB as shown in the above image.
+
+Challenge 2 - 
 
