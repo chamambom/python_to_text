@@ -227,5 +227,11 @@ Challenge 1 - Collation errors that made my container fail to initilise my datab
 
 I discovered that - MariaDB latest doesnt support the utf8mb4_0900_ai_ci Collation as shown in the image. I then replaced the collation with the one supported by MariaDB as shown in the above image.
 
-Challenge 2 - 
+Challenge 2 - one of my SQL queries was referencing a table name using caps. 
+
+![alt text](./app/static/img/MySQLCap.png)
+
+In all honesty this caught me offguard. I had an SQL query that was referencing the plan table in caps as shown below.
+
+![img.png](app/static/img/sqlquery.png)
 

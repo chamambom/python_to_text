@@ -47,7 +47,7 @@ def show_entries():
     FROM subscriber \
     INNER JOIN domains \
     ON subscriber.dom_id=domains.dom_id \
-    INNER JOIN PLAN  \
+    INNER JOIN plan  \
     ON subscriber.plan_id =plan.plan_id ORDER BY subscriber.ipaddress '
     g.cursor.execute(sql)
     g.connection.commit()
@@ -95,7 +95,7 @@ def edit_entry(sub_id):
     FROM subscriber \
     INNER JOIN domains \
     ON subscriber.dom_id=domains.dom_id \
-    INNER JOIN PLAN  \
+    INNER JOIN plan  \
     ON subscriber.plan_id =plan.plan_id WHERE sub_id=' + id
     g.cursor.execute(sql)
     g.connection.commit()
