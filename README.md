@@ -23,7 +23,7 @@ Confronted with mounting operational demands, I seized the opportunity to automa
 Portal Images 
 
 #### Add Subscriber 
-![img_3.png](static/img/img_3.png)
+![img_3.png](./app/static/img/img_3.png)
 
 #### View Subscribers 
 
