@@ -1,13 +1,11 @@
-### Self service portal generating a text file format using Python, Flask & MySQL (Subscriber Network Provisioning through an Internet Bandwidth Shaper) 
+## Self service portal generating a text file format using Python, Flask & MySQL (Subscriber Network Provisioning through an Internet Bandwidth Shaper) 
 
 The Internet Bandwidth Shaper Consumed an input txt file in this format 
 
 ```
  10.10.10.25 10.10.10.25@ispcustomer.co.zw :=set_attribute 30_MEG_UP_30_MEG_DOWN
  10.10.10.26 10.10.10.26@ispcustomer.co.zw :=set_attribute 50_MEG_UP_50_MEG_DOWN
-
  ```
-
 ### Introduction
 This initiative stemmed from my time as a Systems Engineer at an Internet Service Provider (ISP) in Zimbabwe, between 2015 and 2018. Faced with the challenge of managing a tier 2 internet customer's bandwidth needs, I decided to automate this process.
 
@@ -23,7 +21,7 @@ Confronted with mounting operational demands, I seized the opportunity to automa
 Portal Images 
 
 #### Add Subscriber 
-![img_3.png](./app/static/img_3.png)
+![img_3.png](./app/static/img/img_3.png)
 
 #### View Subscribers 
 
