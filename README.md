@@ -247,15 +247,15 @@ Final step - Running application.
 
 ##### Challenges I faced and had to overcome when I tried to dockerise this app
 
-Challenge 1 - Collation errors that made my container fail to initialise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
+###### Challenge 1 - Collation errors that made my container fail to initialise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
 
 ![alt text](./app/static/img/dbcollation.png)
 
-- Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
+###### Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
 
 I discovered that - MariaDB latest doesn't support the utf8mb4_0900_ai_ci Collation as shown in the image. I then replaced the collation with the one supported by MariaDB as shown in the above image.
 
-Challenge 2 - one of my SQL queries was referencing a table name using caps. 
+###### Challenge 2 - one of my SQL queries was referencing a table name using caps. 
 
 ![img.png](app/static/img/sqlquery.png)
 
@@ -268,25 +268,26 @@ I could see that it was able to see my database and able to connect to it but co
 
 ![alt text](./app/static/img/MySQLCap.png)
 
-Solution - I changed my SQL query to lower case. 
+###### Solution 
+
+- I changed my SQL query to lower case. 
 
 ![img.png](app/static/img/lowerCase.png)
 
-Challenge 3 - My Mariadb image came without mysql-client, I was only able to test database connection using the app container.
+###### Challenge 3 - I needed my frontend app container to come with mysql-client, I needed this tool inorder to test connectivity from the app to the the database container.
 
-- In my app container, I had insert this line - in my DockerFile
+###### Solution 
 
+-In my app container, I had insert this line - in my DockerFile
 
 ```
 RUN apk update && 
 \ apk add mariadb-client
 ```
 
-Solution - I had to create a multistage DockerFile from the base mysql image and then create a new mysql image with mysql client installed as show below.
+###### Biggest takeaway 
 
-
-Challenge 4 - just make sure you use the same version of python, flask and MySQL database both on your development machine and when you dockerise.
-Thats the purpose of docker anyways. 
+Ensure consistency in the versions of Python, Flask, and MySQL across both your development environment and Docker setup. This alignment is fundamental to Docker's purpose.
 
 
 
