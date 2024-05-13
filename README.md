@@ -125,7 +125,6 @@ Docker networking is primarily used to establish communication between Docker co
 Docker supports different types of networks, each fit for certain use cases. We’ll be exploring the network drivers supported by Docker in general.
 - Docker typically uses a bridge network, and while it can support host networking, that option is only available on Linux.
 - When using Docker containers, network isolation is achieved using a network namespace.
-- 
 
 ##### What Are Docker Network Drivers?
 
@@ -214,8 +213,7 @@ Commands:
   rm          Remove one or more networks
   ```
 
-My application is a multi-container app that runs the flask app in one container and a mysql database in another container. I have shared
-container networking notes in order for others who want to understand how it works.
+This application comprises multiple containers(multi-container app), with one running the Flask app and the other hosting a MySQL database. I've included detailed notes on container networking for those interested in understanding its functionality.
 
 Please note that if you face problems with troubleshooting - understand these scenarios 
 
@@ -253,7 +251,7 @@ Final step - Running application.
 
 ###### Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
 
-I discovered that - MariaDB latest doesn't support the utf8mb4_0900_ai_ci Collation as shown in the image. I then replaced the collation with the one supported by MariaDB as shown in the above image.
+Upon investigation, I found that the latest version of MariaDB does not support the utf8mb4_0900_ai_ci Collation, as depicted in the image. Consequently, I replaced the collation with one that is supported by MariaDB, as indicated in the image above.
 
 ###### Challenge 2 - one of my SQL queries was referencing a table name using caps. 
 
