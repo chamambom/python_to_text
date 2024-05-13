@@ -44,15 +44,19 @@ Database contained 3 tables.
 ![alt text](./app/static/img/image.png)
 
 Subscriber table with 2 foreign keys to the PLAN and DOMAINS table.
+
 ![alt text](./app/static/img/image4.png)
 
 Plan table
+
 ![alt text](./app/static/img/image-1.png)
 
-Domains table.
+Domains table
+
 ![alt text](./app/static/img/image-2.png)
 
 ##### Limitations - Improvements.
+
 I tried to document any improvements that could be made to this flask/python app. When I designed it, it was meant to streamline the network subscriber provisioning process and not meant to be a fully fledged application. There are concepts that can be borrowed for other applications.
 
 e.g 
@@ -63,7 +67,6 @@ e.g
 
 ![alt text](./app/static/img/img44545.png)
 
-
 ### Key Features
 - **Self-Service Interface:** Customer could manage their bandwidth allocation and configurations autonomously, eliminating the need for constant manual intervention.
 - **Efficiency Through Automation:** Leveraging automation, I minimized response times and optimized resource allocation, enhancing both customer satisfaction and operational efficiency.
@@ -72,7 +75,7 @@ e.g
 By embracing automation and empowering the customer, I not only tackled operational challenges but also fostered stronger, more efficient relationships. 
 
 
-### Optional - Dockerising the App
+## Dockerising the App
 "I first developed this application eight years ago, when Docker was still in its early stages. However, I didn't containerize it until last year (2023), when I decided to update my knowledge of containers and Docker by converting this service into a multi-container application."
 
 - I figured dockerising the app will make it easier for anyone out there who wants to see how it works. I will put every detail about docker that should help anyone troubleshoot whatever challenges they will face when trying to reproduce this repo.
