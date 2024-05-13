@@ -243,17 +243,23 @@ Third step, create a container from your image & run it
 Final step - Running application.
       - Your application is now running in a container and you can make any necessary tests.
 
-##### Challenges I faced and had to overcome when I tried to dockerise this app
+##### Here are the challenges I encountered and successfully addressed while dockerizing this application:
 
-###### Challenge 1 - Collation errors that made my container fail to initialise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
+###### Challenge 1 
+
+- Collation errors that made my container fail to initialise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
 
 ![alt text](./app/static/img/dbcollation.png)
 
-###### Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
+###### Solution 
+
+- Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
 
 Upon investigation, I found that the latest version of MariaDB does not support the utf8mb4_0900_ai_ci Collation, as depicted in the image. Consequently, I replaced the collation with one that is supported by MariaDB, as indicated in the image above.
 
-###### Challenge 2 - one of my SQL queries was referencing a table name using caps. 
+###### Challenge 2 
+
+- one of my SQL queries was referencing a table name using caps. 
 
 ![img.png](app/static/img/sqlquery.png)
 
@@ -272,7 +278,9 @@ I could see that it was able to see my database and able to connect to it but co
 
 ![img.png](app/static/img/lowerCase.png)
 
-###### Challenge 3 - I needed my frontend app container to come with mysql-client, I needed this tool inorder to test connectivity from the app to the the database container.
+###### Challenge 3 
+
+- I needed my frontend app container to come with mysql-client, I needed this tool inorder to test connectivity from the app to the the database container.
 
 ###### Solution 
 
