@@ -222,31 +222,38 @@ Please note that if you face problems with troubleshooting - understand these sc
 - container to container communications on same host.
 - container to container on different hosts 
 - app to app communications on the same container.
-  
 
-Basic Docker Workflow 
 
-###### First step is to configure your docker file
-      - See the Dockerfile contents under your root directory
+##### Running the application 
+- run  docker compose up -d  - inside the project folder.
 
-###### Second step, create an image of your aplication 
+##### Deleting the environment 
+
+- run  docker-compose down -- rmi all
+
+##### Basic Docker Workflow
+
+First step is to configure your docker files
+      - See the Dockerfile contents under your root directory - you can test these dockerfiles separately for example the frontend dockerfile.
+
+Second step, create an image of your application 
       -  docker build -t bandshaper/flask-app:1.0.0 .       
 
-###### Third step, create a container from your image & run it
+Third step, create a container from your image & run it
       -  docker build -t bandshaper/flask-app:1.0.0 .      
 
-###### Final step - Running application.
+Final step - Running application.
       - Your application is now running in a container and you can make any necessary tests.
 
-###### Challenges I faced and had to overcome when I tried to dockerise this app
+##### Challenges I faced and had to overcome when I tried to dockerise this app
 
-Challenge 1 - Collation errors that made my container fail to initilise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
+Challenge 1 - Collation errors that made my container fail to initialise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
 
 ![alt text](./app/static/img/dbcollation.png)
 
 - Solution - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
 
-I discovered that - MariaDB latest doesnt support the utf8mb4_0900_ai_ci Collation as shown in the image. I then replaced the collation with the one supported by MariaDB as shown in the above image.
+I discovered that - MariaDB latest doesn't support the utf8mb4_0900_ai_ci Collation as shown in the image. I then replaced the collation with the one supported by MariaDB as shown in the above image.
 
 Challenge 2 - one of my SQL queries was referencing a table name using caps. 
 
@@ -282,12 +289,6 @@ Challenge 4 - just make sure you use the same version of python, flask and MySQL
 Thats the purpose of docker anyways. 
 
 
-##### Running the application 
-- run  docker compose up -d  - inside the project folder.
-
-##### Deleting the environment 
-
-- run  docker-compose down -- rmi all
 
 
 
