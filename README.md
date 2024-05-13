@@ -6,6 +6,12 @@ The Internet Bandwidth Shaper Consumed an input txt file in this format
  10.10.10.25 10.10.10.25@ispcustomer.co.zw :=set_attribute 30_MEG_UP_30_MEG_DOWN
  10.10.10.26 10.10.10.26@ispcustomer.co.zw :=set_attribute 50_MEG_UP_50_MEG_DOWN
  ```
+## Installation
+To run the application:
+1. Clone this repository.
+2. Navigate to the project directory.
+3. Run `docker-compose up` to start the containers.
+
 ### Introduction
 This initiative stemmed from my time as a Systems Engineer at an Internet Service Provider (ISP) in Zimbabwe, between 2015 and 2018. Faced with the challenge of managing a tier 2 internet customer's bandwidth needs, I decided to automate this process.
 
