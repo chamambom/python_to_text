@@ -300,7 +300,7 @@ RUN apk update &&
 \ apk add mariadb-client
 ```
 
-##### Biggest takeaway 
+## Biggest takeaway 
 
 Ensure consistency in the versions of Python, Flask, and MySQL across both your development environment and Docker setup. This alignment is fundamental to Docker's purpose.
 
