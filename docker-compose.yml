@@ -22,8 +22,8 @@ services:
       context: ./app
       dockerfile: ./dockerConfigs/backend/Dockerfile
     environment: # Environment Variables: Sets environment variables for configuring MySQL. The MYSQL_ROOT_PASSWORD is set to 'beautiful', and MYSQL_DATABASE is set to 'frampol_db'.
-      MARIADB_ROOT_PASSWORD: beautiful
-      MYSQL_DATABASE: frampoldb
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     restart: always # Restart Policy: Configures the container to restart automatically (restart: always) if it stops unexpectedly.
     ports: # Ports: Maps port 3307 on the host machine to port 3306 inside the container, allowing external access to the MySQL service.
       - "3307:3306"
