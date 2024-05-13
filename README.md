@@ -99,6 +99,24 @@ Lets educate each other first
 
 e.g In the command docker run -i -t -p 6080:5000, the port mapping specifies that port 5000 inside the Docker container is mapped to port 6080 on the host machine.
 
+##### Docker multi-stage builds
+
+When to use Docker multi-stage build?
+
+Multi-stage builds are great when you need to create an artifact or binary. Building such requires a lot of dependencies. However, once the binary is built, you don't need the dependencies to run it.
+
+You should consider using Docker multi-stage builds when your application has a complex build process and several dependencies or when you want to separate the build and runtime environments.
+
+Why use Docker multi-stage build?
+
+Here are some benefits of using Docker multi-stage build:
+
+    Generated images are smaller. The final image is typically much smaller than the one produced by a normal build, as the resulting image includes just what the application needs to run.
+    More secure containers. Packages and dependencies need to be kept up to date because they can be a potential source of vulnerability for attackers to exploit. Therefore, you should only keep the required dependencies. Using Docker multi-stage build means the resulting container will be more secure because your final image includes only what it needs to run the application.
+    Faster deployment. Smaller images mean less time to transfer or quicker CI/CD builds, faster deployment time, and improved performance.
+
+
+
 #### Docker Networking 
 
 Docker networking is primarily used to establish communication between Docker containers and the outside world via the host machine where the Docker daemon is running.
@@ -229,9 +247,39 @@ I discovered that - MariaDB latest doesnt support the utf8mb4_0900_ai_ci Collati
 
 Challenge 2 - one of my SQL queries was referencing a table name using caps. 
 
+![img.png](app/static/img/sqlquery.png)
+
+In all honesty this caught me offguard. I had an SQL query that was referencing the plan table in caps. Whats wierd is that I am running MySQL 5.7 on 
+my windows machine and it was working perfectly fine. When I dockerised my application, I used Mariadb as my base image and I was getting this error.
+
+![img.png](app/static/img/MySQLCaseError.png)
+
+I could see that it was able to see my database and able to connect to it but couldnt think that was the issue.
+
 ![alt text](./app/static/img/MySQLCap.png)
 
-In all honesty this caught me offguard. I had an SQL query that was referencing the plan table in caps as shown below.
+Solution - I changed my SQL query to lower case. 
 
-![img.png](app/static/img/sqlquery.png)
+![img.png](app/static/img/lowerCase.png)
+
+Challenge 3 - My Mariadb image came without mysql-client, I was only able to test database connection using the app container.
+
+- In my app container, I had insert this line - in my DockerFile
+
+
+```
+RUN apk update && 
+\ apk add mariadb-client
+```
+
+Solution - I had to create a multistage DockerFile from the base mysql image and then create a new mysql image with mysql client installed as show below.
+
+
+Challenge 4 - just make sure you use the same version of python, flask and MySQL database both on your development machine and when you dockerise.
+Thats the purpose of docker anyways. 
+
+
+
+
+
 

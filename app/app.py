@@ -15,7 +15,7 @@ def db_connect():
         host=dbcreds['host'],
         user=dbcreds['user'],
         passwd=dbcreds['passwd'],
-        database=dbcreds['db'])
+        database=dbcreds['backend'])
     g.cursor = g.connection.cursor(buffered=True)
 
 
