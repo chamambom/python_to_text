@@ -252,21 +252,21 @@ Third step, create a container from your image & run it
 Final step - Running application.
       - Your application is now running in a container and you can make any necessary tests.
 
-##### Here are the challenges I encountered and successfully addressed while dockerizing this application:
+## Challenges I encountered and successfully addressed while dockerizing this application:
 
-###### Challenge 1 
+##### Challenge 1 
 
 - Collation errors that made my container fail to initialise my database inside the mounted docker entrypoint - ./db:/docker-entrypoint-initdb.d/:ro 
 
 ![alt text](./app/static/img/dbcollation.png)
 
-###### Solution 
+##### Solution 
 
 - Since I was using mysql-5.7 on my windows machine to develop this app, for some reason i decided to dockerise my db container using Mariadb-latest (bad move).
 
 Upon investigation, I found that the latest version of MariaDB does not support the utf8mb4_0900_ai_ci Collation, as depicted in the image. Consequently, I replaced the collation with one that is supported by MariaDB, as indicated in the image above.
 
-###### Challenge 2 
+##### Challenge 2 
 
 - one of my SQL queries was referencing a table name using caps. 
 
@@ -281,17 +281,17 @@ I could see that it was able to see my database and able to connect to it but co
 
 ![alt text](./app/static/img/MySQLCap.png)
 
-###### Solution 
+##### Solution 
 
 - I changed my SQL query to lower case. 
 
 ![img.png](app/static/img/lowerCase.png)
 
-###### Challenge 3 
+##### Challenge 3 
 
 - I needed my frontend app container to come with mysql-client, I needed this tool inorder to test connectivity from the app to the the database container.
 
-###### Solution 
+##### Solution 
 
 -In my app container, I had insert this line - in my DockerFile
 
@@ -300,7 +300,7 @@ RUN apk update &&
 \ apk add mariadb-client
 ```
 
-###### Biggest takeaway 
+##### Biggest takeaway 
 
 Ensure consistency in the versions of Python, Flask, and MySQL across both your development environment and Docker setup. This alignment is fundamental to Docker's purpose.
 
