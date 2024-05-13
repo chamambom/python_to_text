@@ -15,30 +15,30 @@ I served as a Systems Engineer during this period (2015 -2018), entrusted with m
 ### The Challenge
 The tier 2 customer was leasing the bandwidth internet shaper for their Internet customers. This posed a significant operational overhead as requests flooded in via email and the ticketing system's support queue, demanding constant attention.
 
-### The Solution
+## The Solution
 Confronted with mounting operational demands, I seized the opportunity to automate the process and created a self-service portal. This self service portal empowered the tire 2 ISP to take control of their bandwidth management, reducing the support burden on our team and enhancing their experience.
 
-Portal Images 
+#### Screenshots
 
-#### Add Subscriber 
+##### Add Subscriber 
 ![img_3.png](./app/static/img/img_3.png)
 
-#### View Subscribers 
+##### View Subscribers 
 
 ![img_1.png](./app/static/img/img_1.png)
 
-#### Output 
+##### Output 
 The Internet bandwidth shaper ingested a text file following this structure below.
 
 ![img_4.png](./app/static/img/img_4.png)
 
 
-#### Key Considerations of the format. 
+##### Key Considerations of the format. 
 - spaces in the file.
 - fields required - ipaddress, ipaddress@domain then :=set_attribute applies the required bandiwidth.
 - This output was then sent to the internet bandwidth shaper via a linux cron job. 
 
-#### Database Structure
+##### Database Structure
 
 Database contained 3 tables.
 ![alt text](./app/static/img/image.png)
@@ -52,7 +52,7 @@ Plan table
 Domains table.
 ![alt text](./app/static/img/image-2.png)
 
-#### Limitations - Improvements.
+##### Limitations - Improvements.
 I tried to document any improvements that could be made to this flask/python app. When I designed it, it was meant to streamline the network subscriber provisioning process and not meant to be a fully fledged application. There are concepts that can be borrowed for other applications.
 
 e.g 
@@ -77,7 +77,7 @@ By embracing automation and empowering the customer, I not only tackled operatio
 
 - I figured dockerising the app will make it easier for anyone out there who wants to see how it works. I will put every detail about docker that should help anyone troubleshoot whatever challenges they will face when trying to reproduce this repo.
 
-##### DockerFile Contents/terms
+#### DockerFile Contents/terms
 For example, in your Dockerfile:
 Expose 5000 
 
@@ -85,7 +85,7 @@ The port specified after the EXPOSE instruction in the Dockerfile would be the p
 
 So, in the command docker run -i -t -p 6080:5000 ..., where port 5000 is mapped to port 6080, you would expose port 5000 inside the Dockerfile if your application listens on that port.
 
-##### Docker Compose 
+#### Docker Compose 
 
 Lets educate each other first 
 
@@ -97,7 +97,7 @@ Lets educate each other first
 
 e.g In the command docker run -i -t -p 6080:5000, the port mapping specifies that port 5000 inside the Docker container is mapped to port 6080 on the host machine.
 
-##### Docker multi-stage builds
+#### Docker multi-stage builds
 
 When to use Docker multi-stage build?
 
@@ -130,7 +130,7 @@ Docker handles communication between containers by creating a default bridge net
 
 Docker allows you to create three different types of network drivers out-of-the-box: bridge, host, and none. However, they may not fit every use case, so we’ll also explore user-defined networks such as overlay and macvlan. Let’s take a closer look at each one.
 
-###### The Bridge Driver
+##### The Bridge Driver
 
 This is the default. Whenever you start Docker, a bridge network gets created and all newly started containers will connect automatically to the default bridge network.
 
@@ -153,7 +153,7 @@ Another reason not to use it in production is that it will allow unrelated conta
 
 NB - You can create custom bridge networks later.
 
-###### The Host Driver
+##### The Host Driver
 
 As the name suggests, host drivers use the networking provided by the host machine. And it removes network isolation between the container and the host machine where Docker is running. For example, If you run a container that binds to port 80 and uses host networking, the container’s application is available on port 80 on the host’s IP address. You can use the host network if you don’t want to rely on Docker’s networking but instead rely on the host machine networking.
 
@@ -167,11 +167,11 @@ You can access Nginx by hitting the http://localhost:80/ url.
 
 The downside with the host network is that you can’t run multiple containers on the same host having the same port. Ports are shared by all containers on the host machine network.
 
-###### The None Driver
+##### The None Driver
 
 The none network driver does not attach containers to any network. Containers do not access the external network or communicate with other containers. You can use it when you want to disable the networking on a container.
 
-###### The Overlay Driver
+##### The Overlay Driver
 
 The Overlay driver is for multi-host network communication, as with Docker Swarm or Kubernetes. It allows containers across the host to communicate with each other without worrying about the setup. Think of an overlay network as a distributed virtualized network that’s built on top of an existing computer network.
 
@@ -183,7 +183,7 @@ To create an overlay network so that standalone containers can communicate with 
 
 ``` docker network create -d overlay --attachable my-attachable-overlay```
 
-###### The Macvlan Driver
+##### The Macvlan Driver
 
 This driver connects Docker containers directly to the physical host network. As per the Docker documentation:
 
@@ -191,7 +191,7 @@ This driver connects Docker containers directly to the physical host network. As
 
 Macvlan networks are best for legacy applications that need to be modernized by containerizing them and running them on the cloud because they need to be attached to a physical network for performance reasons. A macvlan network is also not supported on Docker desktop for macOS.
 
-###### Basic Docker Networking Commands
+##### Basic Docker Networking Commands
 
 To see which commands list, create, connect, disconnect, inspect, or remove a Docker network, use the docker network help command.
 
@@ -220,6 +220,8 @@ Please note that if you face problems with troubleshooting - understand these sc
 - container to container on different hosts 
 - app to app communications on the same container.
   
+
+Basic Docker Workflow 
 
 ###### First step is to configure your docker file
       - See the Dockerfile contents under your root directory
@@ -275,6 +277,14 @@ Solution - I had to create a multistage DockerFile from the base mysql image and
 
 Challenge 4 - just make sure you use the same version of python, flask and MySQL database both on your development machine and when you dockerise.
 Thats the purpose of docker anyways. 
+
+
+##### Running the application 
+- run  docker compose up -d  - inside the project folder.
+
+##### Deleting the environment 
+
+- run  docker-compose down -- rmi all
 
 
 
