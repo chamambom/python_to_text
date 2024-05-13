@@ -1,10 +1,12 @@
 ## Self service portal generating a text file format using Python, Flask & MySQL (Subscriber Network Provisioning through an Internet Bandwidth Shaper) 
 
-## Installation
+### Installation
 To run the application:
+```
 1. Clone this repository.
 2. Navigate to the project directory.
 3. Run `docker-compose up -d` to start the containers.
+```
 
 This application generates a text file formatted as shown below. The Internet Bandwidth Shaper consumes it as an input text file in this structure.
 
