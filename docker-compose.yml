@@ -2,7 +2,7 @@ services:
   web:
     container_name: frontend-app
     build:
-      context: ./app
+      context: .
       dockerfile: ./dockerConfigs/frontend/Dockerfile
     depends_on:
       - db
@@ -19,7 +19,7 @@ services:
   db:
     container_name: backend-backend # Container Name: Specifies the name of the container as backend-backend.
     build:
-      context: ./app
+      context: .
       dockerfile: ./dockerConfigs/backend/Dockerfile
     environment: # Environment Variables: Sets environment variables for configuring MySQL. The MYSQL_ROOT_PASSWORD is set to 'beautiful', and MYSQL_DATABASE is set to 'frampol_db'.
       MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
