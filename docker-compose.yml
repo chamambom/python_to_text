@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: frontend-app
+    container_name: app-frontend
     build:
       context: .
       dockerfile: ./dockerConfigs/frontend/Dockerfile
@@ -11,34 +11,83 @@ services:
       - 6080:5000
     environment:
       FLASK_APP: ./app/app.py
+      DATABASE_HOST: db # Points to the 'db' service in the backend network
+      DATABASE_PORT: 3306
+      DATABASE_NAME: ${MYSQL_DATABASE}
+      DATABASE_USER: ${MYSQL_USER}
+      DATABASE_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - .:/app
     networks:
       - backend
 
   db:
-    container_name: backend-backend # Container Name: Specifies the name of the container as backend-backend.
+    container_name: db-backend
     build:
       context: .
       dockerfile: ./dockerConfigs/backend/Dockerfile
-    environment: # Environment Variables: Sets environment variables for configuring MySQL. The MYSQL_ROOT_PASSWORD is set to 'beautiful', and MYSQL_DATABASE is set to 'frampol_db'.
-      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-    restart: always # Restart Policy: Configures the container to restart automatically (restart: always) if it stops unexpectedly.
-    ports: # Ports: Maps port 3307 on the host machine to port 3306 inside the container, allowing external access to the MySQL service.
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # Secure root password
+      MYSQL_DATABASE: ${MYSQL_DATABASE}            # Database name
+      MYSQL_USER: ${MYSQL_USER}                    # MySQL user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}            # MySQL password
+    restart: always
+    ports:
       - "3307:3306"
     volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro # ./backend:/docker-entrypoint-initdb.d/: Mounts the ./backend directory on the host machine into the /docker-entrypoint-initdb.d/ directory inside the container. This is used for initializing the database with SQL scripts during container startup.
+      - ./db:/docker-entrypoint-initdb.d/:ro # Mount SQL initialization scripts
+      - db_data:/var/lib/mysql # Persistent storage for database data
     networks:
       - backend
 
-networks: # Networks: Associates the container with the backend network, presumably defined elsewhere in the Docker Compose file.
-    backend:
+networks:
+  backend:
 
-#volumes:
-#    app:
-#    backend:
-#    data:
+volumes:
+  db_data:
+
+
+# services:
+#   web:
+#     container_name: frontend-app
+#     build:
+#       context: .
+#       dockerfile: ./dockerConfigs/frontend/Dockerfile
+#     depends_on:
+#       - db
+#     restart: always
+#     ports:
+#       - 6080:5000
+#     environment:
+#       FLASK_APP: ./app/app.py
+#     volumes:
+#       - .:/app
+#     networks:
+#       - backend
+
+#   db:
+#     container_name: backend-backend # Container Name: Specifies the name of the container as backend-backend.
+#     build:
+#       context: .
+#       dockerfile: ./dockerConfigs/backend/Dockerfile
+#     environment: # Environment Variables: Sets environment variables for configuring MySQL. The MYSQL_ROOT_PASSWORD is set to 'beautiful', and MYSQL_DATABASE is set to 'frampol_db'.
+#       MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#       MYSQL_DATABASE: ${MYSQL_DATABASE}
+#     restart: always # Restart Policy: Configures the container to restart automatically (restart: always) if it stops unexpectedly.
+#     ports: # Ports: Maps port 3307 on the host machine to port 3306 inside the container, allowing external access to the MySQL service.
+#       - "3307:3306"
+#     volumes:
+#       - ./db:/docker-entrypoint-initdb.d/:ro # ./backend:/docker-entrypoint-initdb.d/: Mounts the ./backend directory on the host machine into the /docker-entrypoint-initdb.d/ directory inside the container. This is used for initializing the database with SQL scripts during container startup.
+#     networks:
+#       - backend
+
+# networks: # Networks: Associates the container with the backend network, presumably defined elsewhere in the Docker Compose file.
+#     backend:
+
+# #volumes:
+# #    app:
+# #    backend:
+# #    data:
 
 
 
