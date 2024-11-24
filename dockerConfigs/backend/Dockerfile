@@ -1,5 +1,5 @@
 # Use the mariadb:latest image as the base image
-FROM mysql:8
+FROM mariadb:latest
 
 # Expose port 3306 for MySQL connections
 EXPOSE 3306
