@@ -31,12 +31,14 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}            # Database name
       MYSQL_USER: ${MYSQL_USER}                    # MySQL user
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}            # MySQL password
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
     restart: always
     ports:
       - "3307:3306"
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro # Mount SQL initialization scripts
       - db_data:/var/lib/mysql # Persistent storage for database data
+      - ./dockerConfigs/backend/my.cnf:/etc/mysql/conf.d/my.cnf # Custom config
     networks:
       - backend
 
