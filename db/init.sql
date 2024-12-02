@@ -1,5 +1,5 @@
-CREATE DATABASE frampoldb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `frampoldb`;
+CREATE DATABASE frampol_network_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `frampol_network_db`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: localhost    Database: frampoldb

@@ -1,22 +1,43 @@
 from __future__ import unicode_literals
-from flask import Flask, render_template, request, redirect, url_for, flash, session, g
-import mysql.connector as db
-import databaseconfig
+import secrets
 import os
+from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, g
+import mysql.connector as db
+from databaseconfig import Config  # Import Config from the appropriate relative path
 
 app = Flask(__name__)
-app.secret_key = '101'
+app.secret_key = secrets.token_hex(32)  # Generates a 64-character hex key
+# Please note that the below values can configured to come out of a database
+app.config['USERNAME'] = 'appuser'
+app.config['PASSWORD'] = 'pass123#'
 
 
 @app.before_request
 def db_connect():
-    dbcreds = databaseconfig.ProductionConfig.dbcreds
+    # Get database credentials from Config
+    dbcreds = Config.get_db_creds()
+
+    # Connect to the database
     g.connection = db.connect(
         host=dbcreds['host'],
         user=dbcreds['user'],
         passwd=dbcreds['passwd'],
-        database=dbcreds['backend'])
+        database=dbcreds['backend'],
+        port=dbcreds['port']  # Port is already converted to an integer in Config
+    )
     g.cursor = g.connection.cursor(buffered=True)
+
+
+@app.teardown_request
+def db_disconnect(exception):
+    # Ensure connection is closed after the request
+    cursor = getattr(g, 'cursor', None)
+    connection = getattr(g, 'connection', None)
+    if cursor:
+        cursor.close()
+    if connection:
+        connection.close()
 
 
 @app.after_request
@@ -31,9 +52,6 @@ def exception_handler(error):
     return "!!!!" + repr(error)
 
 
-# Please note that the below values can configured to come out of a database
-app.config['USERNAME'] = 'eTk3HZ%G'
-app.config['PASSWORD'] = 'fS$6{-&Mhf.gBYD@'
 
 
 @app.route('/')
